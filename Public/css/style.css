@@ -1,0 +1,13 @@
+﻿body{padding:50px;font:14px "Lucida Grande",Helvetica,Arial,sans-serif; }
+a{color:#00b7ff;}
+.pokoj{float:left;width:100px;border:1px solid black;height:300px;padding:10px;overflow:scroll-y;}
+.halo{ background: red; clear:both;}
+.11{background:blue;}
+.poz a{ float: left; width:40px; height:40px; }
+.poz a:hover {background: red;}
+.drzewo a{
+background-image: url('http://www.formanowicz.pl/start_pliki/drzewo.gif');
+background-repeat: no-repeat;
+/*padding-left: 30px;   width of the image plus a little extra padding */
+display: block; 
+}

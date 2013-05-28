@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <title>Czat</title>
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script src="/js/chat.js"></script>
+<script src="/js/game.js"></script>
+  <link rel="stylesheet" href="/css/style.css">
+ 
+<script>
+	
+</script>
+
+
+
+
+
+  </head>  
+  <body>
+  <div id="menu">
+  <input type="button" id="newgame" value="Nowa gra" />
+   <input type="button" id="dolaczz" value="Dołącz do gry" />
+  </div>
+   <div id="Kolej"></div>
+  <div id="Plansza"></div>
+  
+  
+  
+   <div class="pokoj"  style="float:right;width:100px;border-left:1px solid black;height:300px;padding:10px;overflow:scroll-y;">
+	<b>Pokoje</b>
+	<div id="rooms"></div>
+
+</div>
+
+<div  style="float:left;width:200px;border-right:1px solid black;height:300px;padding:10px;"><input type="button" id="roomsend" value="Dodaj pokój" />
+	<input id="ROOMS" style="width:150px; padding:10px;" />
+	<input type="button" id="namesend" value="Zmień nazwe" />
+	<input id="NAMES" style="width:150px; padding:10px;" />
+	</div>
+<div style="float:left;width:300px;height:250px;overflow:scroll-y;padding:10px;">
+	<div id="conversation"></div>
+	<input id="data" style="width:200px;" />
+	<input type="button" id="datasend" value="send" />
+
+</div>
+
+  </body>
+</html>
