@@ -4,13 +4,16 @@ a{color:#00b7ff;}
 .halo{ background: red; clear:both;}
 .11{background:blue;}
 .poz a{ float: left; width:40px; height:40px; }
-.spr a {background-image: url('http://www.keller107.cba.pl/z_yoyo/ok.png'); background-repeat: no-repeat; display: block; }
+.spr a {filter: alpha(opacity=50); opacity:0.5; }
+.spr2 a {  }
+.gracz a {background-image: url('http://host1.panoramix.maxnet.org.pl/~wisla/XML/kamien.jpg'); } 
 #Kolej{float: left;}
-
+.droga a{ background-image: url('http://host1.panoramix.maxnet.org.pl/~wisla/XML/kamien.jpg');}
 #Plansza{width:500px; float:left;}
-.drzewo a:hover {background-image: url('http://www.keller107.cba.pl/z_yoyo/ok.png');}
+.drzewo a:hover {background-image: url('http://www.keller107.cba.pl/z_yoyo/ok.png'); background-image: url('http://host1.panoramix.maxnet.org.pl/~wisla/XML/kamien.jpg');}
 .drzewo a{
-background-image: url('http://www.formanowicz.pl/start_pliki/drzewo.gif');
+background-image: url('http://host1.panoramix.maxnet.org.pl/~wisla/XML/kamien.jpg');
+
 background-repeat: no-repeat;
 /*padding-left: 30px;   width of the image plus a little extra padding */
 display: block; 
