@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <title>Czat</title>
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script src="/js/chat.js"></script>
+<script src="/js/game.js"></script>
+  <link rel="stylesheet" href="/css/style.css">
+   <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
+ 
+<script>
+	
+</script>
+  </head>  
+  <body>
+  <div id="menu">
+  <input type="button" id="newgame" value="Nowa gra" />
+   <input type="button" id="dolaczz" value="Dołącz do gry" />
+  </div>
+     
+  <div id="Plansza"></div>
+  <input type="button" id="TURA" value="Koniec tury" />
+	<div id="CZAS"> </div> 
+	<div id="Kolej"></div>
+
+  
+  
+
+
+</div>
+
+
+<div style="float:left;width:300px;height:250px;overflow:scroll-y;padding:10px;">
+	<div id="conversation"></div>
+	<input id="data" style="width:200px;" />
+	<input type="button" id="datasend" value="send" />
+
+</div>
+
+  </body>
+</html>

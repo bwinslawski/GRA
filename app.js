@@ -151,8 +151,29 @@ var lolek = kolej.length - 1;
 
 	
 	socket.on('NaPole', function(newpole){
+	// Sprawdza czy osoba która kliknela jest piersza w kolejce
 	if(socket.username==kolej[0]){
 	krok++;
+	if(newpole=="TURA"){
+	 krok = 0;
+	var pomocna = kolej[0];
+	var pomocnaa = fragi[0]
+	kolej.shift();
+	kolej.push(pomocna);
+	fragi.shift();
+	fragi.push(pomocnaa);
+	for (var i=0;i<max;i++)
+				{
+					 for (var j=0;j<max;j++)
+					 {
+					 if(plansza[i][j]==kolej[0]){ pier = i; drug = j; }
+					 }
+				}
+	socket.emit('czas', kolej,pier);
+	socket.broadcast.emit('czas', kolej,pier);
+	 }
+	
+	else{
 	if(krok<6){
 	var myArray = newpole.split(' ');
 	var pier = parseInt( myArray[0]);
@@ -259,6 +280,7 @@ var lolek = kolej.length - 1;
 				}
 	socket.emit('czas', kolej,pier);
 	socket.broadcast.emit('czas', kolej,pier);
+	 }
 	 }
 	  socket.emit('widokgracz', socket.username,plansza,kolej,pier,drug);
 	socket.broadcast.emit('widokgracz', socket.username,plansza,kolej,pier ,drug);
