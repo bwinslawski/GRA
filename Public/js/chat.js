@@ -3,6 +3,10 @@
 		socket.on('connect', function(){
 		socket.emit('adduser', prompt("Podaj swój nick?"));
 	});
+    
+	socket.on('inna', function (username) {
+		socket.emit('adduser', prompt("Nick "+ username +" jest zajęty. Podaj inny nick?"));
+	});
 
 	socket.on('updatechat', function (username, data) {
 		$('#conversation').append('<b>'+username + ':</b> ' + data + '<br>');

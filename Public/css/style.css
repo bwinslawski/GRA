@@ -4,7 +4,11 @@ a{color:#00b7ff;}
 .halo{ background: red; clear:both;}
 .11{background:blue;}
 .poz a{ float: left; width:40px; height:40px; }
-.poz a:hover {background: red;}
+.spr a {background-image: url('http://www.keller107.cba.pl/z_yoyo/ok.png'); background-repeat: no-repeat; display: block; }
+#Kolej{float: left;}
+
+#Plansza{width:500px; float:left;}
+.drzewo a:hover {background-image: url('http://www.keller107.cba.pl/z_yoyo/ok.png');}
 .drzewo a{
 background-image: url('http://www.formanowicz.pl/start_pliki/drzewo.gif');
 background-repeat: no-repeat;
