@@ -15,15 +15,14 @@
   </head>  
   <body>
   <div id="menu">
-  <input type="button" id="newgame" value="Nowa gra" />
-   <input type="button" id="dolaczz" value="Dołącz do gry" />
+  <input type="button" class="btn btn-primary" id="newgame" value="Nowa gra" />
+   <input type="button" class="btn btn-primary" id="dolaczz" value="Dołącz do gry" />
   </div>
      
   <div id="Plansza"></div>
-  <input type="button" id="TURA" value="Koniec tury" />
+ 
 	<div id="Kolej"></div>
 	<div id="CZAS"> </div> 
-	<div id="Kolej"></div>
 
   
   
@@ -32,10 +31,11 @@
 </div>
 
 
-<div style="float:left;width:300px;height:250px;overflow:scroll-y;padding:10px;">
+<div class="chattt">
+ <input type="button" class="btn btn-primary" id="TURA" value="Koniec tury" />
 	<div id="conversation"></div>
 	<input id="data" style="width:200px;" />
-	<input type="button" id="datasend" value="send" />
+	<input type="button" class="btn btn-primary" id="datasend" value="send" />
 
 </div>
 

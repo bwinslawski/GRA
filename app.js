@@ -132,11 +132,23 @@ io.sockets.on('connection', function (socket) {
 
 	
 	});
-		
+	
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
+}
+	
 	socket.on('NaPole', function(newpole){
 	// Sprawdza czy osoba która kliknela jest piersza w kolejce
 	console.log("Siemka");
 	if(socket.username==kolej[0]){
+	socket.emit('anime', newpole);
+	socket.broadcast.emit('anime', newpole);
+	sleep(1000);
 	krok++;
 	
 	if(newpole=="TURA"){

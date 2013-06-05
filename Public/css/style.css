@@ -8,7 +8,7 @@ a{color:#00b7ff;}
 .spr a {filter: alpha(opacity=50); opacity:0.5; }
 .spr2 a {  }
 .gracz a {background-image: url('http://host1.panoramix.maxnet.org.pl/~wisla/XML/kamien.jpg'); } 
-#Kolej{float: left;}
+#Kolej{float: left; padding: 20px; border-right: 1px solid;}
 .droga a{ background-image: url('http://host1.panoramix.maxnet.org.pl/~wisla/XML/kamien.jpg');}
 #Plansza{width:500px; float:left;}
 .drzewo a:hover {background-image: url('http://www.keller107.cba.pl/z_yoyo/ok.png'); background-image: url('http://host1.panoramix.maxnet.org.pl/~wisla/XML/kamien.jpg');}
@@ -20,6 +20,9 @@ a{color:#00b7ff;}
 .pomm3 a {position: absolute;   }
 .pomm4 {position: absolute;  left:250px; bottom:230px;}
 .pomm4 a {position: absolute;   }
+.chattt{
+float:left;width:300px;height:250px;overflow:scroll-y;padding:10px; margin:20px; 
+}
 .drzewo a{
 background-image: url('http://host1.panoramix.maxnet.org.pl/~wisla/XML/kamien.jpg');
 

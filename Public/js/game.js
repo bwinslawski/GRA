@@ -31,7 +31,7 @@
 		  //***********************************Fragi *********************************************************
 		  socket.on('fragi', function (fragi , kolej) {
 		$('#Kolej').empty();
-		$('#Kolej').append('<p>Teraz gra gracz o nicku '+kolej[0]+'</p>');
+		
 			$('#Kolej').append('<table class="table table-striped"> <thead> <tr><th>#</th> <th>Nick</th><th>Fragi</th><th>Dead</th></tr></thead><tbody>');
 			var lolek = kolej.length;
 			var ii = 0
@@ -40,7 +40,7 @@
 		 ii= i+1;
 		 $('#Kolej').children().append(' <tr><td>'+ii+'</td><td>'+kolej[i]+'</td><td>'+fragi[i]+'</td><td>0</td></tr>');
 		 }
-		 $('#Kolej').append('</tbody></table>');
+		 $('#Kolej').append('</tbody></table><p>Teraz gra gracz o nicku <strong>'+kolej[0]+'</strong></p>');
 		  });
       //******************* CZAS ****************************************************************
 	    socket.on('czas', function (kolej,czas) {
@@ -262,14 +262,6 @@ socket.on('widokgracz', function (pomoc, plansza,kolej,jeden,dwa) {
 		  
 		  
 		 	  socket.on('anime', function (room) {
-		
-		
-		  });
-		 
-
-		 
-		 
-		function NaPole(room){
 		var myArray = room.split('_');
 		var pier = parseInt( myArray[0]);
 		var drug = parseInt( myArray[1]);
@@ -286,36 +278,34 @@ socket.on('widokgracz', function (pomoc, plansza,kolej,jeden,dwa) {
 			$('.'+room).children().empty();
 			$('.'+room).children().append('<img  src="http://host1.panoramix.maxnet.org.pl/~wisla/XML/CZOLGl.png" width="40" height="40"/>');
 			$('.'+room).children().children().removeClass("droga").addClass("pomm"); $('.'+room).css('background-color', 'red');
-			$('.'+room).children().children().animate({"left": "-=30px"}, "slow"); var t=setTimeout(function(){socket.emit('NaPole', room1);},1000);
+			$('.'+room).children().children().animate({"left": "-=30px"}, "slow"); //var t=setTimeout(function(){socket.emit('NaPole', room1);},1000);
 			}else if(drug>czteryr){//prawo
 			$('.'+room).children().empty();
 			$('.'+room).children().append('<img  src="http://host1.panoramix.maxnet.org.pl/~wisla/XML/CZOLGp.png" width="40" height="40"/>');
 			$('.'+room).children().children().removeClass("droga").addClass("pomm2"); $('.'+room).css('background-color', 'red');
-			$('.'+room).children().children().animate({"right": "-=39px"}, "slow"); var t=setTimeout(function(){socket.emit('NaPole', room1);},1000);
+			$('.'+room).children().children().animate({"right": "-=39px"}, "slow"); //var t=setTimeout(function(){socket.emit('NaPole', room1);},1000);
 			}else if(pier <cztery){ //góra
 			$('.'+room).children().empty();
 			$('.'+room).children().append('<img  src="http://host1.panoramix.maxnet.org.pl/~wisla/XML/CZOLG.png" width="40" height="40"/>');
 			$('.'+room).children().children().removeClass("droga").addClass("pomm3"); $('.'+room).css('background-color', 'red');
-			$('.'+room).children().children().animate({"top": "-=39px"}, "slow"); var t=setTimeout(function(){socket.emit('NaPole', room1);},1000);
+			$('.'+room).children().children().animate({"top": "-=39px"}, "slow"); //var t=setTimeout(function(){socket.emit('NaPole', room1);},1000);
 			}else if(pier>cztery){ //dół
 			$('.'+room).children().empty();
 			$('.'+room).children().append('<img  src="http://host1.panoramix.maxnet.org.pl/~wisla/XML/CZOLGd.png" width="40" height="40"/>');
 			$('.'+room).children().children().removeClass("droga").addClass("pomm4"); $('.'+room).css('background-color', 'red');
-			$('.'+room).children().children().animate({"bottom": "-=55px"}, "slow"); var t=setTimeout(function(){socket.emit('NaPole', room1);},1000);
+			$('.'+room).children().children().animate({"bottom": "-=55px"}, "slow"); //var t=setTimeout(function(){socket.emit('NaPole', room1);},1000);
 			}
 		}
-		else
-		{
-			var room1= (myArray[0]+'_'+myArray[1]+'_4');
-			$('.'+room).animate({"left": "-=50px"}, "slow");
-			//$('.'+room).add('a').css('background-color', 'red');
-				$('.'+room).children().children().removeClass("droga").addClass("pomm");
-			//http://host1.panoramix.maxnet.org.pl/~wisla/XML/kulka.png
-			$('.'+room).css('background-color', 'red');
-			
-			$('.'+room).children().children().animate({"left": "-=40px"}, "slow");
-			socket.emit('NaPole', room1);
-		}
+		
+		
+		  });
+		 
+
+		 
+		 
+		function NaPole(room){
+		socket.emit('NaPole', room);
+		
 	}
 		 
 $(function(){
