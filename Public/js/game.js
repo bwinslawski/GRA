@@ -31,6 +31,7 @@
 		  //***********************************Fragi *********************************************************
 		  socket.on('fragi', function (fragi , kolej) {
 		$('#Kolej').empty();
+		$('#Kolej').append('<p>Teraz gra gracz o nicku '+kolej[0]+'</p>');
 			$('#Kolej').append('<table class="table table-striped"> <thead> <tr><th>#</th> <th>Nick</th><th>Fragi</th><th>Dead</th></tr></thead><tbody>');
 			var lolek = kolej.length;
 			var ii = 0
@@ -122,37 +123,42 @@ socket.on('widokgracz', function (pomoc, plansza,kolej,jeden,dwa) {
 			 for (var j=dwa;j<(dwa+10);j++)
 			 {
 			 var jj = dwa - j + 5 ;    var ii = jeden - i + 5;
-			 var elo = (i +' '+j);
+			 var jw = jeden + 5;
+			 var dwq = dwa + 5;
+			 var elo1 = (i +'_'+j+'_'+jw+'_'+dwq);
+			  var elo = (i +'_'+j);
 			 var h = 4;
+			 //jezli jest w kolo czolgu albo jest czolg gracza
 			 if(((ii==1)&&(jj==0))||((ii==0)&&(jj==1))||((ii==0)&&(jj==-1))||((ii==-1)&&(jj==0))||((ii==0)&&(jj==0))){
-				  
 				 if(plansza[i][j]==3)
 				 {
-				  $('.poziom'+i+'').append('<div class="'+elo+' drzewo poz " ><a href="#" onclick="NaPole(\''+ elo +'\')"><img  src="http://gmclan.org/uploader/3255/tree_gotowe.gif" width="40" height="40"/></a></div>');
+				  $('.poziom'+i+'').append('<div class="'+elo+' drzewo poz " ><a href="#" onclick="NaPole(\''+ elo1 +'\')"><img  src="http://gmclan.org/uploader/3255/tree_gotowe.gif" width="40" height="40"/></a></div>');
 			
 				 }
 				 else if(plansza[i][j]==1){
-				 $('.poziom'+i+'').append('<div class="'+elo+' droga poz spr" ><a href="#" onclick="NaPole(\''+ elo +'\')"></a></div>');
+				 $('.poziom'+i+'').append('<div class="'+elo+' droga poz spr" ><a href="#" onclick="NaPole(\''+ elo1 +'\')"></a></div>');
 				 }
 				 else if(plansza[i][j]==2){
-				  $('.poziom'+i+'').append('<div class="'+elo+' droga poz spr" ><a href="#" onclick="NaPole(\''+ elo +'\')"></a></div>');
+				  $('.poziom'+i+'').append('<div class="'+elo+' droga poz spr" ><a href="#" onclick="NaPole(\''+ elo1 +'\')"></a></div>');
 				 }
 			  else{
 			   
-			   elo = (i +' '+j+' '+h);
-			   if(pomoc[0]=="gora"){$('.poziom'+i+'').append('<div class="'+elo+' gracz poz spr2" ><a href="#" ><img  src="http://host1.panoramix.maxnet.org.pl/~wisla/XML/CZOLG.png" width="40" height="40"/></a></div>');
+			   elo = (i +'_'+j+'_'+h);
+			    if(pomoc[0]=="gora"){$('.poziom'+i+'').append('<div class="'+elo+' gracz poz cel" ><a href="#" onclick="NaPole(\''+ elo +'\')"><img  src="http://host1.panoramix.maxnet.org.pl/~wisla/XML/CZOLG.png" width="40" height="40"/></a></div>');
 				}
 				else if(pomoc[0]=="prawa"){
-				$('.poziom'+i+'').append('<div class="'+elo+' gracz poz spr2" ><a href="#" ><img  src="http://host1.panoramix.maxnet.org.pl/~wisla/XML/CZOLGp.png" width="40" height="40"/></a></div>');
+				$('.poziom'+i+'').append('<div class="'+elo+' gracz poz cel" ><a href="#" onclick="NaPole(\''+ elo +'\')"><img  src="http://host1.panoramix.maxnet.org.pl/~wisla/XML/CZOLGp.png" width="40" height="40"/></a></div>');
 				}
 				else if(pomoc[0]=="lewa"){
-				$('.poziom'+i+'').append('<div class="'+elo+' gracz poz spr2" ><a href="#" ><img  src="http://host1.panoramix.maxnet.org.pl/~wisla/XML/CZOLGl.png" width="40" height="40"/></a></div>');
+				$('.poziom'+i+'').append('<div class="'+elo+' gracz poz cel" ><a href="#" onclick="NaPole(\''+ elo +'\')"><img  src="http://host1.panoramix.maxnet.org.pl/~wisla/XML/CZOLGl.png" width="40" height="40"/></a></div>');
 				}
 				else if(pomoc[0]=="dol"){
-				$('.poziom'+i+'').append('<div class="'+elo+' gracz poz spr2" ><a href="#" ><img  src="http://host1.panoramix.maxnet.org.pl/~wisla/XML/CZOLGd.png" width="40" height="40"/></a></div>');
+				$('.poziom'+i+'').append('<div class="'+elo+' gracz poz cel" ><a href="#" onclick="NaPole(\''+ elo +'\')"><img  src="http://host1.panoramix.maxnet.org.pl/~wisla/XML/CZOLGd.png" width="40" height="40"/></a></div>');
+				}
+				else if (jw==i&&dwq==j){$('.poziom'+i+'').append('<div class="'+elo+' gracz poz" ><a href="#" ><img  src="http://host1.panoramix.maxnet.org.pl/~wisla/XML/CZOLGd.png" width="40" height="40"/></a></div>');
 				}
 				else {
-				$('.poziom'+i+'').append('<div class="'+elo+' gracz poz spr2" ><a href="#" ><img  src="http://host1.panoramix.maxnet.org.pl/~wisla/XML/CZOLGd.png" width="40" height="40"/></a></div>');
+				$('.poziom'+i+'').append('<div class="'+elo+' gracz poz" ><a href="#" ><img  src="http://host1.panoramix.maxnet.org.pl/~wisla/XML/CZOLGd.png" width="40" height="40"/></a></div>');
 				}
 			 	 }
 				 }
@@ -173,7 +179,7 @@ socket.on('widokgracz', function (pomoc, plansza,kolej,jeden,dwa) {
 			 
 			  else{
 			   
-			  elo = (i +' '+j+' '+h);
+			  elo = (i +'_'+j+'_'+h);
 			  var pp = dwa + p +5;
 			  var ll = dwa - l +5;
 			  var dd = jeden + d +5;
@@ -184,19 +190,19 @@ socket.on('widokgracz', function (pomoc, plansza,kolej,jeden,dwa) {
 			  console.log('i: '+jj+' '+i+' <'+jedenn+' || '+i+' >= '+gg+' g '+g);
 			  if(ii==0 && ((j>dwaa)&&(j<=pp))){
 			  console.log("jest1");
-			  $('.poziom'+i+'').append('<div class="'+elo+' gracz poz" ><a href="#" onclick="NaPole(\''+ elo +'\')"><img  src="http://host1.panoramix.maxnet.org.pl/~wisla/XML/Ogame1.PNG" width="40" height="40"/></a></div>');
+			  $('.poziom'+i+'').append('<div class="'+elo+' gracz poz cel" ><a href="#" onclick="NaPole(\''+ elo +'\')"><img  src="http://host1.panoramix.maxnet.org.pl/~wisla/XML/CZOLG.png" width="40" height="40"/></a></div>');
 			}
 			else if(ii==0 && ((j < dwaa)&&(j >= ll))){
 			  console.log("jest2");
-			  $('.poziom'+i+'').append('<div class="'+elo+' gracz poz" ><a href="#" onclick="NaPole(\''+ elo +'\')"><img  src="http://host1.panoramix.maxnet.org.pl/~wisla/XML/Ogame1.PNG" width="40" height="40"/></a></div>');
+			  $('.poziom'+i+'').append('<div class="'+elo+' gracz poz cel" ><a href="#" onclick="NaPole(\''+ elo +'\')"><img  src="http://host1.panoramix.maxnet.org.pl/~wisla/XML/CZOLG.png" width="40" height="40"/></a></div>');
 			}
 			else if(jj==0 && ((i < jedenn)&&(i >= gg))){
 			  console.log("jest3");
-			  $('.poziom'+i+'').append('<div class="'+elo+' gracz poz" ><a href="#" onclick="NaPole(\''+ elo +'\')"><img  src="http://host1.panoramix.maxnet.org.pl/~wisla/XML/Ogame1.PNG" width="40" height="40"/></a></div>');
+			  $('.poziom'+i+'').append('<div class="'+elo+' gracz poz cel" ><a href="#" onclick="NaPole(\''+ elo +'\')"><img  src="http://host1.panoramix.maxnet.org.pl/~wisla/XML/CZOLG.png" width="40" height="40"/></a></div>');
 			}else
 			if(jj==0 && ((i>jedenn)&&(i<=dd))){
 			  console.log("jest4");
-			  $('.poziom'+i+'').append('<div class="'+elo+' gracz poz" ><a href="#" onclick="NaPole(\''+ elo +'\')"><img  src="http://host1.panoramix.maxnet.org.pl/~wisla/XML/Ogame1.PNG" width="40" height="40"/></a></div>');
+			  $('.poziom'+i+'').append('<div class="'+elo+' gracz poz cel" ><a href="#" onclick="NaPole(\''+ elo +'\')"><img  src="http://host1.panoramix.maxnet.org.pl/~wisla/XML/CZOLG.png" width="40" height="40"/></a></div>');
 			}
 			
 			else  {
@@ -253,13 +259,63 @@ socket.on('widokgracz', function (pomoc, plansza,kolej,jeden,dwa) {
 		$('#Liczby').empty();
 			$('#Liczby').append('jeden:'+jeden+'dwa:'+dwa);
 		  });
-		 
+		  
+		  
+		 	  socket.on('anime', function (room) {
+		
+		
+		  });
 		 
 
 		 
 		 
 		function NaPole(room){
-		socket.emit('NaPole', room);
+		var myArray = room.split('_');
+		var pier = parseInt( myArray[0]);
+		var drug = parseInt( myArray[1]);
+		var cztery = parseInt( myArray[2]);
+		var room1= (myArray[0]+'_'+myArray[1]);
+		console.log(room1);
+		var dlugosc = myArray[2]
+		if(dlugosc!='4'){
+			var cztery = parseInt( myArray[2]);
+			var czteryr = parseInt( myArray[3]);
+			room = (myArray[2]+'_'+myArray[3]+'_4');
+			console.log(room);
+			if(drug<czteryr){//lewo
+			$('.'+room).children().empty();
+			$('.'+room).children().append('<img  src="http://host1.panoramix.maxnet.org.pl/~wisla/XML/CZOLGl.png" width="40" height="40"/>');
+			$('.'+room).children().children().removeClass("droga").addClass("pomm"); $('.'+room).css('background-color', 'red');
+			$('.'+room).children().children().animate({"left": "-=30px"}, "slow"); var t=setTimeout(function(){socket.emit('NaPole', room1);},1000);
+			}else if(drug>czteryr){//prawo
+			$('.'+room).children().empty();
+			$('.'+room).children().append('<img  src="http://host1.panoramix.maxnet.org.pl/~wisla/XML/CZOLGp.png" width="40" height="40"/>');
+			$('.'+room).children().children().removeClass("droga").addClass("pomm2"); $('.'+room).css('background-color', 'red');
+			$('.'+room).children().children().animate({"right": "-=39px"}, "slow"); var t=setTimeout(function(){socket.emit('NaPole', room1);},1000);
+			}else if(pier <cztery){ //góra
+			$('.'+room).children().empty();
+			$('.'+room).children().append('<img  src="http://host1.panoramix.maxnet.org.pl/~wisla/XML/CZOLG.png" width="40" height="40"/>');
+			$('.'+room).children().children().removeClass("droga").addClass("pomm3"); $('.'+room).css('background-color', 'red');
+			$('.'+room).children().children().animate({"top": "-=39px"}, "slow"); var t=setTimeout(function(){socket.emit('NaPole', room1);},1000);
+			}else if(pier>cztery){ //dół
+			$('.'+room).children().empty();
+			$('.'+room).children().append('<img  src="http://host1.panoramix.maxnet.org.pl/~wisla/XML/CZOLGd.png" width="40" height="40"/>');
+			$('.'+room).children().children().removeClass("droga").addClass("pomm4"); $('.'+room).css('background-color', 'red');
+			$('.'+room).children().children().animate({"bottom": "-=55px"}, "slow"); var t=setTimeout(function(){socket.emit('NaPole', room1);},1000);
+			}
+		}
+		else
+		{
+			var room1= (myArray[0]+'_'+myArray[1]+'_4');
+			$('.'+room).animate({"left": "-=50px"}, "slow");
+			//$('.'+room).add('a').css('background-color', 'red');
+				$('.'+room).children().children().removeClass("droga").addClass("pomm");
+			//http://host1.panoramix.maxnet.org.pl/~wisla/XML/kulka.png
+			$('.'+room).css('background-color', 'red');
+			
+			$('.'+room).children().children().animate({"left": "-=40px"}, "slow");
+			socket.emit('NaPole', room1);
+		}
 	}
 		 
 $(function(){

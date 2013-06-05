@@ -163,7 +163,7 @@ io.sockets.on('connection', function (socket) {
 	if(krok<6){
 	pomocc = [];
 	 
-		var myArray = newpole.split(' ');
+		var myArray = newpole.split('_');
 		var pier = parseInt( myArray[0]);
 		var drug = parseInt( myArray[1]);
 		
@@ -172,7 +172,7 @@ io.sockets.on('connection', function (socket) {
 		else if(drug>dw){ pomocc.push("prawa");    }
 		else if(je<pier){ pomocc.push("dol");    }
 		else if(je>pier){ pomocc.push("gora");    }
-		else {console.log("siemka"); }
+		
 		
 		
 		var cztery = parseInt( myArray[2]);
@@ -285,9 +285,7 @@ io.sockets.on('connection', function (socket) {
 					 if(plansza[i][j]==kolej[0]){ pier = i; drug = j; }
 					 }
 				}
-	socket.emit('czas', kolej,CZASS);
-	socket.broadcast.emit('czas', kolej,CZASS);
-		socket.emit('fragi',fragi, kolej);
+    socket.emit('fragi',fragi, kolej);
 	socket.broadcast.emit('fragi', fragi, kolej);
 	 }
 	 }

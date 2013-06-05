@@ -3,6 +3,7 @@ a{color:#00b7ff;}
 .pokoj{float:left;width:100px;border:1px solid black;height:300px;padding:10px;overflow:scroll-y;}
 .halo{ background: red; clear:both;}
 .11{background:blue;}
+.cel a:hover {background:red; background-image: url('http://host1.panoramix.maxnet.org.pl/~wisla/XML/cell.png'); }
 .poz a{ float: left; width:40px; height:40px; }
 .spr a {filter: alpha(opacity=50); opacity:0.5; }
 .spr2 a {  }
@@ -11,6 +12,14 @@ a{color:#00b7ff;}
 .droga a{ background-image: url('http://host1.panoramix.maxnet.org.pl/~wisla/XML/kamien.jpg');}
 #Plansza{width:500px; float:left;}
 .drzewo a:hover {background-image: url('http://www.keller107.cba.pl/z_yoyo/ok.png'); background-image: url('http://host1.panoramix.maxnet.org.pl/~wisla/XML/kamien.jpg');}
+.pomm {position: absolute;  left:240px; }
+.pomm a {position: absolute;   }
+.pomm2 {position: absolute;  right:1075px; }
+.pomm2 a {position: absolute;   right:1070px;}
+.pomm3 {position: absolute;  left:250px; top:248px;}
+.pomm3 a {position: absolute;   }
+.pomm4 {position: absolute;  left:250px; bottom:230px;}
+.pomm4 a {position: absolute;   }
 .drzewo a{
 background-image: url('http://host1.panoramix.maxnet.org.pl/~wisla/XML/kamien.jpg');
 
